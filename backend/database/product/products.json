@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Product 1",
+        "price": 100,
+        "description": "This is the first product created in the database",
+        "ratings": 3,
+        "category": "Home",
+        "seller": "Syed Owais Ahmed",
+        "stock": 100,
+        "totalReviews": 0,
+        "images": [],
+        "reviews": [],
+        "createdAt": "2021-12-30T21:21:09.562Z"
+    },
+    {
+        "name": "Product 2",
+        "price": 100,
+        "description": "This is the first product created in the database",
+        "ratings": 3,
+        "category": "Sports",
+        "seller": "Syed Owais Ahmed",
+        "stock": 100,
+        "totalReviews": 0,
+        "images": [],
+        "reviews": [],
+        "createdAt": "2021-12-30T21:21:09.562Z"
+    },
+    {
+        "name": "Product 3",
+        "price": 100,
+        "description": "This is the first product created in the database",
+        "ratings": 3,
+        "category": "Health",
+        "seller": "Syed Owais Ahmed",
+        "stock": 100,
+        "totalReviews": 0,
+        "images": [],
+        "reviews": [],
+        "createdAt": "2021-12-30T21:21:09.562Z"
+    }
+]
