@@ -30,8 +30,6 @@ class APIFeatures {
 
         this.query = this.query.find(JSON.parse(queryString));
 
-        console.log(queryString);
-
         return this;
     }
 
