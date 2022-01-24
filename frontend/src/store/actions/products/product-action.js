@@ -6,20 +6,27 @@ import {
     PRODUCT_FETCH_START, 
     PRODUCT_FETCH_SUCCESS, 
     PRODUCT_FETCH_ERROR,
+    PRODUCT_CATEGORIES_FETCH_SUCCESS,
     CLEAN_ERROR 
 } from '../../constants';
 
-const getAllProducts = () => async dispatch => {
+const getAllProducts = (keyword, price, category = '', rating = 0, page) => async dispatch => {
     try {
         dispatch({
             type: ALL_PRODUCTS_FETCH_START,
         });
 
-        const { data } = await axios.get('/api/v1/products', {
-            options: {
-                contentType: 'application/json',
-            }
-        });
+        let url = `/api/v1/products?keyword=${keyword}&page=${page}&price[lte]=${price[1]}&price[gte]=${price[0]}`;
+
+        if (category && category.trim().length > 0) {
+            url += `&category=${category}`;
+        }
+
+        if (rating > 0) {
+            url += `&ratings[gte]=${rating}`;
+        }
+
+        const { data } = await axios.get(url);
 
         dispatch({
             type: ALL_PRODUCTS_FETCH_SUCCESS,
@@ -53,10 +60,23 @@ const getProductInformation = (id) => async dispatch => {
     }
 };
 
+const getProductCategories = () => async dispatch => {
+    try {
+        const { data } = await axios.get(`/api/v1/product/categories`);
+
+        dispatch({
+            type: PRODUCT_CATEGORIES_FETCH_SUCCESS,
+            payload: data.productCategories
+        });
+    } catch (error) {
+        console.log('Error fetching product categories');
+    }
+};
+
 const cleanErrors = () => async dispatch => {
     dispatch({
         type: CLEAN_ERROR
     });
 };
 
-export { getAllProducts, getProductInformation, cleanErrors };
+export { getAllProducts, getProductInformation, getProductCategories, cleanErrors };

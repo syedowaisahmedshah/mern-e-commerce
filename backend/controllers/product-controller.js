@@ -16,20 +16,21 @@ exports.newProduct = asyncErrorHandler(async (req, res, next) => {
 
 exports.getProducts = asyncErrorHandler(async (req, res, next) => {
     
-    const resultsPerPage = 10;
+    const pageSize = 5;
     const productsCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)
         .search()
         .filter()
-        .pagination(resultsPerPage);
+        .pagination(pageSize);
 
     const products = await apiFeatures.query;
 
     res.status(200).json({
         success: true,
-        count: products.length,
-        totalCount: productsCount,
+        allCount: productsCount,
+        currentCount: req.query.keyword && req.query.keyword.trim().length > 0? products.length : productsCount,
+        pageSize,
         products
     });
 });
@@ -156,5 +157,28 @@ exports.deleteProductReview = asyncErrorHandler(async (req, res, next) => {
 
     res.status(200).json({
         success: true
+    });
+});
+
+exports.getProductCategories = asyncErrorHandler(async (req, res, next) => {
+    
+    res.status(200).json({
+        success: true,
+        productCategories: [
+            'Electronics',
+            'Cameras',
+            'Laptop',
+            'Accessories',
+            'Headphones',
+            'Phone',
+            'Books',
+            'Clothes',
+            'Shoes',
+            'Beauty',
+            'Health',
+            'Sports',
+            'Outdoor',
+            'Home'
+        ]
     });
 });

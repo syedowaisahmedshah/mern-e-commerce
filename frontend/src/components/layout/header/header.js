@@ -1,31 +1,27 @@
 import React, { Fragment } from "react";
-import './header.css';
+import { useNavigate, Link } from "react-router-dom";
+import Search from "../../cross-cutting/search/search";
+import "./header.css";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <Fragment>
       <nav className="navbar row">
         <div className="col-12 col-md-3">
           <div className="navbar-brand">
-            <img className="logo" src="./images/mern-e-commerce-no-text.png" />
-            <span className="logo-text">MERN-E-COMMERCE</span>
+            <Link to={`/`}>
+              <img
+                className="logo"
+                src="./images/mern-e-commerce-no-text.png"
+              />
+              <span className="logo-text">MERN-E-COMMERCE</span>
+            </Link>
           </div>
         </div>
 
         <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <div className="input-group">
-            <input
-              type="text"
-              id="search_field"
-              className="form-control"
-              placeholder="Search Product By Name ..."
-            />
-            <div className="input-group-append">
-              <button id="search_btn" className="btn">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+          <Search navigate={navigate} />
         </div>
 
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">

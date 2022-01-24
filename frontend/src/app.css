@@ -521,16 +521,23 @@ footer p.copy-right {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
   border-color: #fa9c23;
+  background-color: darkblue;
+  color: yellow;
+  background: linear-gradient(45deg, rebeccapurple, yellow);
+
 }
 
 .page-link {
-  color: #fa9c23;
+  background-color: darkblue;
+  color: yellow;
+  font-weight: bold;
+  background: linear-gradient(45deg, rebeccapurple, lightgray);
+  padding: .5rem 2rem;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  color: white;
 }
 
 /* Admin Sidebar */
@@ -666,4 +673,34 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+
+.filter-title {
+  font-weight: bold;
+  color: yellow;
+  border: solid 1px yellow;
+  background: linear-gradient(45deg, rebeccapurple, lightgray);
+  background-color: rebeccapurple;
+  text-align: center;
+  font-family: fantasy;
+  font-weight: normal;
+}
+
+.category-item {
+  cursor: pointer;
+  list-style: none;
+  color: maroon;
+  text-align: center;
+}
+
+.rating-item {
+  cursor: pointer;
+  list-style: none;
+  color: maroon;
+  text-align: center;
+}
+
+.category-item:hover {
+  color: white;
+  background-color: purple
 }

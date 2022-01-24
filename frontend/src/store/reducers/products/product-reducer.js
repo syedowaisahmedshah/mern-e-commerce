@@ -5,6 +5,7 @@ import {
         PRODUCT_FETCH_START,
         PRODUCT_FETCH_SUCCESS,
         PRODUCT_FETCH_ERROR,
+        PRODUCT_CATEGORIES_FETCH_SUCCESS,
         CLEAN_ERROR
 } from '../../constants';
 
@@ -21,7 +22,9 @@ const productsReducer = (state = { products: [] }, action) => {
                 ...state,
                 loading: false, 
                 products: action.payload.products,
-                totalProducts: action.payload.totalCount
+                currentCount: action.payload.currentCount,
+                allCount: action.payload.allCount,
+                pageSize: action.payload.pageSize
             };
         case ALL_PRODUCTS_FETCH_ERROR: 
             return {
@@ -74,4 +77,18 @@ const productInformationReducer = (state = { product: {} }, action) => {
     }
 };
 
-export { productsReducer, productInformationReducer };
+const productCategoriesReducer = (state = { productCategories: [] }, action) => {
+    switch(action.type) {
+        case PRODUCT_CATEGORIES_FETCH_SUCCESS: 
+            return {
+                ...state,
+                productCategories: action.payload
+            };
+        default: 
+            return {
+                ...state
+            };
+    }
+};
+
+export { productsReducer, productInformationReducer, productCategoriesReducer };
