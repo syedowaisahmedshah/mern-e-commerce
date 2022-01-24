@@ -15,7 +15,7 @@ const {
         isAuthorizedRoles 
       } = require('../utils/auth.js');
 
-router.route('/products/:id').get(isAuthenticated, getSingleProduct);
+router.route('/products/:id').get(getSingleProduct);
 router.route('/products').get(getProducts);
 router.route('/admin/products/new').post(isAuthenticated, isAuthorizedRoles('admin'), newProduct);
 router.route('/admin/products/:id')

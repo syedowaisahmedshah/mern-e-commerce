@@ -1,14 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
-import './app.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app";
+import "./app.css";
 
-import { Provider } from 'react-redux'; 
-import store from './store/store';
+import { Provider } from "react-redux";
+import store from "./store/store";
+import { positions, transitions, Provider as AlertProvider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
+
+const alertOptions = {
+  timeout: 1000,
+  position: positions.BOTTOM_CENTER,
+  transition: transitions.SCALE
+};
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AlertProvider template={AlertTemplate} options={alertOptions}>
+      <App />
+    </AlertProvider>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
