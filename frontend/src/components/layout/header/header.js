@@ -5,6 +5,10 @@ import "./header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const signIn = () => {
+    navigate('/login');
+  }
+
   return (
     <Fragment>
       <nav className="navbar row">
@@ -14,6 +18,7 @@ const Header = () => {
               <img
                 className="logo"
                 src="./images/mern-e-commerce-no-text.png"
+                alt="Company Logo"
               />
               <span className="logo-text">MERN-E-COMMERCE</span>
             </Link>
@@ -25,7 +30,7 @@ const Header = () => {
         </div>
 
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <button className="btn" id="login_btn">
+          <button onClick={signIn} className="btn" id="login_btn">
             Sign In
           </button>
 

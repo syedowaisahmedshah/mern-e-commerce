@@ -11,5 +11,15 @@ export const PRODUCT_FETCH_ERROR = 'PRODUCT_FETCH_ERROR';
 // Product Categories
 export const PRODUCT_CATEGORIES_FETCH_SUCCESS = 'PRODUCT_CATEGORIES_FETCH_SUCCESS';
 
+// Login
+export const LOGIN_START = 'LOGIN_START';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+
+// Register User
+export const REGISTER_USER_START = 'REGISTER_USER_START';
+export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
+export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL';
+
 // Clean Errors
 export const CLEAN_ERROR = 'CLEAN_ERROR';

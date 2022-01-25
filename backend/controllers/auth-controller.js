@@ -4,14 +4,25 @@ const User = require('../models/user');
 const sendToken = require('../utils/jwt-token');
 const sendEmail = require('../utils/send-email');
 const crypto = require('crypto');
+const cloudinary = require('cloudinary');
 
 exports.registerUser = asyncErrorHandler(async (req, res, next) => {
+    
     const { name, email, password, avatar } = req.body;
+    const uploadAvatarResult = await cloudinary.v2.uploader.upload(avatar, {
+        folder: 'mern-e-commerce/images',
+        width: '150',
+        crop: 'scale'
+    });
+
     const user = await User.create({
         name,
         email,
         password,
-        avatar
+        avatar: {
+            public_id: uploadAvatarResult.public_id,
+            url: uploadAvatarResult.secure_url
+        }
     });
 
     sendToken(user, 200, res);

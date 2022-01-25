@@ -6,10 +6,15 @@ const product = require('./routes/product');
 const auth = require('./routes/auth');
 const user = require('./routes/user');
 const order = require('./routes/order');
+
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const fileUploader = require('express-fileupload');
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUploader());
 app.use(cookieParser());
 
 app.use('/api/v1', product);

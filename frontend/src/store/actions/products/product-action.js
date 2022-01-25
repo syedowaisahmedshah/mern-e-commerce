@@ -10,7 +10,7 @@ import {
     CLEAN_ERROR 
 } from '../../constants';
 
-const getAllProducts = (keyword, price, category = '', rating = 0, page) => async dispatch => {
+const getAllProducts = (keyword, price, category = '', rating = 0, page) => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCTS_FETCH_START,
@@ -40,7 +40,7 @@ const getAllProducts = (keyword, price, category = '', rating = 0, page) => asyn
     }
 };
 
-const getProductInformation = (id) => async dispatch => {
+const getProductInformation = (id) => async (dispatch) => {
     try {
         dispatch({
             type: PRODUCT_FETCH_START,
@@ -60,7 +60,7 @@ const getProductInformation = (id) => async dispatch => {
     }
 };
 
-const getProductCategories = () => async dispatch => {
+const getProductCategories = () => async (dispatch) => {
     try {
         const { data } = await axios.get(`/api/v1/product/categories`);
 
@@ -73,7 +73,7 @@ const getProductCategories = () => async dispatch => {
     }
 };
 
-const cleanErrors = () => async dispatch => {
+const cleanErrors = () => async (dispatch) => {
     dispatch({
         type: CLEAN_ERROR
     });

@@ -81,11 +81,23 @@ nav .logo-text {
   color: yellow;
 }
 
-#login_btn {
+#login_btn, #login_button, #register_button {
   background-color: #febd69;
   padding: 0.4rem 1.8rem;
   font-family: calibri;
-  background: linear-gradient(45deg, darkblue, transparent);
+  background: linear-gradient(45deg, darkblue, brown);
+  color: yellow;
+}
+
+.login-title, .register-title {
+  color: darkblue;
+}
+
+input[type=file]::file-selector-button {
+  background-color: #febd69;
+  padding: 0.4rem 1.8rem;
+  font-family: calibri;
+  background: linear-gradient(45deg, darkblue, brown);
   color: yellow;
 }
 
@@ -118,6 +130,7 @@ nav .logo-text {
 
 .card {
   height: 100%;
+  background-color: lightgray
 }
 
 .card-title a {

@@ -1,6 +1,7 @@
 const app = require('./app');
 const connectDatabase = require('./config/database');
 const loadEnvironmentVariables = require('./config/environment');
+const configureCloudinary = require('./config/cloudinary');
 
 // Handle uncaught exceptions
 process.on('uncaughtException', err => {
@@ -10,6 +11,8 @@ process.on('uncaughtException', err => {
 });
 
 loadEnvironmentVariables();
+
+configureCloudinary();
 
 connectDatabase().then((db) => {
     console.log(`Database connected successfully with host: ${db.connection.host}`);
